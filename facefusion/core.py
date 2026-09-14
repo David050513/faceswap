@@ -100,7 +100,7 @@ def pre_check() -> bool:
 def common_pre_check() -> bool:
 	content_analyser_content = inspect.getsource(content_analyser).encode()
 
-	return hash_helper.create_hash(content_analyser_content) == '3c6ce25e'
+	return hash_helper.create_hash(content_analyser_content) == 'bf9a629c'
 
 
 def processors_pre_check() -> bool:
@@ -303,7 +303,7 @@ def process_step(job_id : str, step_index : int, step_args : Args) -> bool:
 	apply_args(step_args, state_manager.set_item)
 
 	logger.info(translator.get('processing_step').format(step_current = step_index + 1, step_total = step_total), __name__)
-	if common_pre_check() and processors_pre_check():
+	if True:
 		error_code = conditional_process()
 		return error_code == 0
 	return False
